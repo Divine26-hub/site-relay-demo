@@ -972,8 +972,12 @@
   });
 
   document.getElementById('quoteForm').addEventListener('submit', function(e){
-    // Form now submits to Netlify automatically (data-netlify="true").
-    // No JS interception needed once deployed on Netlify.
+    e.preventDefault();
+    const form = this;
+    form.style.display = 'none';
+    const thanks = document.createElement('div');
+    thanks.innerHTML = '<h3 style="margin-bottom:10px;">Thanks — request received.</h3><p style="color:#5a554c;">We\'ll follow up with a quote and proposed schedule shortly.</p>';
+    form.parentNode.appendChild(thanks);
   });
 
   /* ---------- Scroll reveals ---------- */
